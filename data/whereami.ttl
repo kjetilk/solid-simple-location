@@ -1,0 +1,7 @@
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dc:  <http://purl.org/dc/terms/> .
+
+<#posnow> a geo:Point ;
+    geo:long 10.4122 ;
+    geo:lat 59.7773 .
+
