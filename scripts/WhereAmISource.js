@@ -21,12 +21,14 @@ function geoFindMe() {
 
     // output.appendChild(img);
 
-    var options = { 
-	body: '@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .\n\n<#posnow> a geo:Point ;\n\tgeo:long ' + longitude + ' ;\n\tgeo:lat ' + latitude +' .\n',
-	contentType: 'text/turtle'
+    var body = '@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .\n\n<#posnow> a geo:Point ;\n\tgeo:long ' + longitude + ' ;\n\tgeo:lat ' + latitude +' .\n';
 
-    }; 
-    fetcher.webOperation('PUT', './whereami.ttl', options);
+    const response = await fetch('data/whereami.ttl', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'text/turtle' },
+      body: body,
+	credentials: 'include'
+    });
   }
 
   function error() {
